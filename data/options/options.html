@@ -1,0 +1,117 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+ - License, v. 2.0. If a copy of the MPL was not distributed with this
+ - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+ 
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Options - Smart HTTPS</title>
+    <link rel="stylesheet" type="text/css" href="options.css">
+    <link rel="icon" type="image/png" href="../icons/enabled/16.png">
+  </head>
+  <body>
+    <div class="intro">
+      <p style="text-align: center; margin-bottom: 10px"><img src="image.png"></img></p>
+      <p><b>HTTP</b>, or Hyper-Text Transfer Protocol, is the way a Web server communicates with the browser. HTTP lets visitors view a site and send information back to the Web server. <b>HTTPS</b>, or Hyper-Text Transfer Protocol Secure, is HTTP through a secured connection. Communications through an HTTPS server are encrypted by a secure certificate known as an SSL. The encryption prevents third-parties from eavesdropping on communications to and from the server. Read more about HTTPS at <a target="_blank" href="https://en.wikipedia.org/wiki/HTTPS">this</a> Wikipedia page.</p>
+      <p><b>Smart HTTPS</b> helps you always use the secure HTTPS protocol, if supported by the server. It automatically changes HTTP protocol to the secure HTTPS, and if loading encounters error, reverts back to HTTP protocol. There are also several options to adjust the performance according to your need (see below).</p>
+    </div>
+    <div id="content">
+      <div class="information">
+        <i>###</i><p>Open support page when addon is upgraded </p><input id="open-homepage" type="checkbox"></input>
+      </div>
+      <div class="information">
+        <i>###</i><p>When switching to HTTPS, if loading takes longer than <input id="timeout" type="number" min=0 max=30000></input> milliseconds, revert the protocol back to HTTP (default is 3000 ms).</p>
+      </div>
+      <div class="information">
+        <i>###</i><p>When switching to HTTPS, if any resource within the page loads in HTTP, revert the protocol back to HTTP <input id="typemissmatch" type="checkbox"></input> (default is not active)</p><br/>
+        <p>Please note, once you enable this option, even if the page loads without any error(s) in HTTPS protocol, but during the loading process a resource(s) such as style, script, or image loads in HTTP, the addon will consider this an error and reverts the protocol back to HTTP.</p><br/>
+        <p><b>Note</b>: this option is still in Beta, so you may encounter errors or performance issues. Please proceed with caution.</p>
+      </div>
+      <div class="information">
+        <i>###</i><p>Log errors and other info to the console <input id="consolelog" type="checkbox"></input></p><br/>
+        <p>In order to see the console, in Firefox, press (Ctrl + Shift + J) on the main window. In Chrome and Opera, head to extensions page and click on the "background.html" link within the extension info (Inspect views).</p>
+      </div>
+      <div class="information">
+        <i>###</i><p>Disable whitelisting HTTP protocols (only for domains added automatically) <input id="dwhitelisting" type="checkbox"></input></p><br/>
+        <p>If you do NOT want the addon to whitelist erroneous HTTP protocols, please enable this option (default is disabled).</p><br/>
+        <p><b>Note</b>: it is not recommneded to disable whitelisting, because it forces the addon to re-check all erroneous HTTP protocols everytime you load these websites.</p><br/>
+        <p>This may cause loading a bit slower. Moreover, "Back" & "Forward" buttons may not work properly for some websites. If you see any of these issues, add the website(s) to the whitelist table manually.</p>
+      </div>
+      <div class="information">
+        <i>###</i><p>Enable incognito mode (private browsing) <input id="incognito" type="checkbox"></input></p><br/>
+        <p>When incognito mode is enabled, Smart HTTPS won't add any domain (with conditions below) to the whitelist table (default is disabled).</p><br/>
+        <p><b>Note</b>: for this option to take action, a domain should meet two conditions (1) be visited in incognito (private) mode (2) be added automatically by the addon.</p>
+      </div>      
+      <div class="information">
+        <i>###</i><p>Enable regular expressions (RegExp) for whitelist and blacklist matching <input id="regexp" type="checkbox"></input></p><br/>
+        <p>If you want to match whitelist or blacklist items with regular expressions, please check this option.</p><br/>
+        <p><b>Note</b> 1: add items in the whitelist or blacklist tables in regular expressions format as following. To write Regex please omit the first and last slash chars (/).</p><br/>
+        <p><b>Example</b>: to have regular expression <b>/(.*)example\.com/</b> please add item <b>(.*)example\.com</b> to the table (without <b>'/'</b> char).</p><br/>
+        <p><b>Note</b> 2: the addon uses "new RegExp(item)" command to translate any item to regular expressions.</p><br/>
+        <p><b>Note</b> 3: when RegExp is active, you can still add items in normal format, i.e. <b>www.example.com</b></p><br/>
+        <p><b>Note</b> 4: if you have a long list of whitelist or blacklist items, do not activate RegExp, as it may hurt performance.</p>
+      </div>
+      <div class="information">
+        <i>###</i><p>Table below lists all whitelisted and blacklisted domains. Maximum table size is <input id="max-table-items" type="number" min=0 max=1000></input> items.</p><br/>
+        <p>Add a desirted domain to the input area and then press + or enter-key to add it to the table.</p>
+      </div>
+      <div class="information">
+        <i>###</i><p>Whitelisted domains: load only in HTTP protocol (domains NOT supporting HTTPS). Smart HTTPS will add domains automatically to this table.</p><br/>
+        <p>You can also add any desired domain manually (if you want to use Regular expressions, please activate RegExp option above).</p><br/>
+        <p>Please note, if you delete an item from the whitelist table, the addon (Smart HTTPS) will try HTTPS protocol again on the deleted item, and if it fails, the domain will be added to the table again.</p><br/>
+        <i>###</i><p>Blacklisted domains: load only in HTTPS protocol (domains that will never drop to HTTP, even though they have errors in HTTPS).</p><br/>
+        <p>Please proceed with caution when adding a domain to the blacklist table. Some websites may have "redirect-to-http-rule", therefore, forcing them to load in HTTPS may cause infinite loop in loading.</p>
+      </div>
+      <div class="itemtable">
+        <table class="fit">
+          <tr>
+            <td>
+              <table>
+                <tr>
+                  <td><input id="add-http-domain" type="text" placeholder="i.e. www.sample-whitelist.com"></input></td>
+                  <td id="add-http-button" class="add">+</td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr>
+                  <td><input id="add-https-domain" type="text" placeholder="i.e. www.sample-blacklist.com"></input></td>
+                  <td id="add-https-button" class="add">+</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; padding: 0 4px">
+              <table class="list" id="http-url-list">
+                <thead>
+                  <tr>
+                    <td style="width: 20px; font-size: 20px">»</td>
+                    <td style="line-height: 24px">Whitelisted domains (NOT supporting HTTPS protocol)</td>
+                    <td title="Remove this item">✗</td>
+                  </tr>
+                </thead>
+                <tbody id="http-url-list-tbody"></tbody>
+              </table>
+            </td>
+            <td style="vertical-align: top; padding: 0 4px">
+              <table class="list" id="https-url-list">
+                <thead>
+                  <tr>
+                    <td style="width: 20px; font-size: 20px">»</td>
+                    <td style="line-height: 24px">Blacklisted domains (forced to load in HTTPS)</td>
+                    <td title="Remove this item">✗</td>
+                  </tr>
+                </thead>
+                <tbody id="https-url-list-tbody"></tbody>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script type='text/javascript' src="options.js"></script>
+  </body>
+</html>

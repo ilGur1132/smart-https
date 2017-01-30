@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "name": "Smart HTTPS",
+  "manifest_version": 2,
+  "short_name": "smarthttps",
+  "background": {"page": "lib/chrome/background.html"},
+  "homepage_url": "http://mybrowseraddon.com/smart-https.html",
+  "options_ui": {"chrome_style": true, "page": "data/options/options.html"},
+  "description": "Automatically changes HTTP addresses to the secure HTTPS, and if loading encounters error, reverts it back to HTTP.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "<all_urls>",
+    "webRequest",
+    "webNavigation",
+    "webRequestBlocking"
+  ],
+  "browser_action": {
+    "default_title": "Smart HTTPS",
+    "default_popup": "data/popup/popup.html",
+    "default_icon": {
+      "16": "data/icons/enabled/16.png", 
+      "32": "data/icons/enabled/32.png"
+    }
+  },
+  "icons": {
+    "16": "data/icons/enabled/16.png",
+    "32": "data/icons/enabled/32.png",
+    "48": "data/icons/enabled/48.png",
+    "64": "data/icons/enabled/64.png",
+    "128": "data/icons/enabled/128.png"
+  }
+}
