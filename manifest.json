@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1b2",
+  "version": "0.2.1b3",
   "name": "Smart HTTPS with Mixed Content Upgrade",
   "manifest_version": 2,
   "short_name": "smarthttps",
@@ -15,6 +15,11 @@
     "webNavigation",
     "webRequestBlocking"
   ],
+  "applications": {
+    "gecko": {
+      "id": "{f6c29eb6-2588-4872-a80a-5eff0d801e9c}"
+    }
+  },
   "browser_action": {
     "default_title": "Smart HTTPS",
     "default_popup": "data/popup/popup.html",
