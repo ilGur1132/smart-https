@@ -1,0 +1,134 @@
+/*
+ * Copyright 2021 ilGur Petter
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+#explore {
+  padding: 0;
+  color: #565252;
+  min-height: 18px;
+  position: relative;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+#explore span {
+  user-select: none;
+  vertical-align: middle;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+#explore[data-loaded=true] {
+  border: 0;
+  margin: 0;
+  font-size: 12px;
+  background: transparent;
+  padding: 5px 3px 3px 3px;
+  font-family: arial, sans-serif;;
+}
+
+#explore .container {
+  border: 0;
+  width: 100%;
+  margin: auto;
+  font-size: 12px;
+  margin-top: 5px;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+#explore .container tr {
+  outline: none;
+  background-color: transparent;
+}
+
+#explore .container tr td {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+#explore .explore {
+  top: 0;
+  right: 0;
+  margin: 0;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 1000000;
+  line-height: 16px;
+  position: absolute;
+  padding: 1px 3px 0 0;
+  color: rgba(0,0,0,0.4);
+}
+
+#explore .close {
+  top: 3px;
+  right: 3px;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 1px 8px;
+  position: absolute;
+  background-color: transparent;
+}
+
+#explore a {
+  border: 0;
+  margin: 0;
+  padding: 5px;
+  display: flex;
+  color: #565252;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  justify-content: center;
+}
+
+#explore .icon {
+  margin: 0;
+  padding: 0;
+  width: 24px;
+  color: #FFF;
+  height: 24px;
+  font-size: 11px;
+  min-width: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: normal;
+  display: inline-block;
+  font-family: arial, sans-serif;
+}
+
+#explore .spacer {
+  border-left: solid 1px rgba(0,0,0,0.2) !important;
+}
+
+#explore .name {
+  padding: 0;
+  overflow: hidden;
+  margin: 0 0 0 5px;
+  font-weight: normal;
+  white-space: nowrap;
+  display: inline-block;
+  text-overflow: ellipsis;
+  font-family: arial, sans-serif;
+}
+
+#explore a, #explore .close, #explore .explore {
+  transition: 300ms ease all;
+  -moz-transition: 300ms ease all;
+  -webkit-transition: 300ms ease all;
+}
+
+#explore .close:hover {
+  color: #FFF;
+  background-color: #C75050;
+}
+
+#explore a:hover, #explore .explore:hover {
+  background-color: rgba(0,0,0,0.03);
+}

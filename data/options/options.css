@@ -1,18 +1,18 @@
-/* 
- * Copyright 2017 ilGur Petter
+/*
+ * Copyright 2021 ilGur Petter
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
 body {
   width: auto;
   margin: 0 auto;
-  min-width: 830px;
+  padding: 0 5px;
+  min-width: 670px;
   max-width: 1080px;
+  overflow-y: scroll;
   align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
 }
 
 body, table {
@@ -28,31 +28,88 @@ table {
   text-align: center;
 }
 
-.list {
+p {
   padding: 0;
-  border-spacing: 0 3px;
+  margin: 5px 0;
+  text-align: justify;
 }
 
-p {text-align: justify}
-.list tr {outline: solid 1px rgba(0,0,0,0.1)}
+details {
+  border: 0;
+  padding: 5px;
+  outline: none;
+  margin: 0 auto;
+}
+
+summary {
+  border: 0;
+  margin: 0;
+  padding: 10px;
+  outline: none;
+  color: #158d47;
+  cursor: pointer;
+  font-size: 12px;
+  padding-left: 0;
+  user-select: none;
+  font-weight: bold;
+  font-family: arial, sans-serif;
+}
+
+summary:focus {
+  outline: none;
+}
+
+.list {
+  padding: 0;
+  border-spacing: 0 5px;
+}
+
+.list thead .number {
+  width: 28px;
+  font-size: 18px;
+}
+
+.list thead .name {
+  color: #1ea1ff;
+  padding: 0 5px;
+  text-align: left;
+  line-height: 28px;
+}
+
+.list thead .remove {
+  line-height: 28px;
+}
+
+.list tbody td[type="number"] {
+  width: 28px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.list tr {
+  outline: solid 1px rgba(0,0,0,0.05);
+}
 
 .fit {
   padding: 0;
-  border-spacing: 0;
   table-layout: fixed;
+  border-spacing: 10px 5px;
 }
 
 a {
-  color: #0094FF; 
+  color: #0094FF;
   text-decoration: none
 }
 
 i {
-  font-size: 16px;
+  padding: 0;
+  font-size: 12px;
   display: inline;
   color: transparent;
-  vertical-align: middle;
-  background: url('item.png') no-repeat center center;
+  margin: 0 2px 0 -5px;
+  vertical-align: initial;
+  background: url('icons/item.png') no-repeat center center;
+  background-size: 12px;
 }
 
 input {
@@ -62,47 +119,59 @@ input {
   vertical-align: middle;
 }
 
+input[type="checkbox"] {
+  margin: 0;
+  color: #555;
+  float: right;
+  vertical-align: middle;
+}
+
 input[type="text"] {
-  height: 24px;
+  margin: 5px;
+  color: #555;
+  height: 36px;
+  font-size: 12px;
+  text-indent: 7px;
   border-radius: 0;
+  font-family: monospace;
   width: calc(100% - 5px);
+  border: solid 1px #1ea1ff;
 }
 
-#max-table-items {
-  width: 77px;
-  height: 24px;
-}
-
-tr td {
+table tr td {
   margin: 0;
   padding: 0;
-  color: #157EFB;
+  color: #555;
   border-width: 0;
   vertical-align: middle;
   transition: 300ms ease all;
-  -moz-transition: 300ms ease all;
-  -webkit-transition: 300ms ease all;
 }
 
 table tr td[type='url'] {
   width: auto;
-  padding: 3px;
+  padding: 5px;
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   overflow: hidden;
   text-align: left;
-  line-height: 16px;
+  line-height: 18px;
+  font-family: monospace;
 }
 
 table tr td[type='close'] {
-  width: 32px;
+  width: 36px;
   cursor: pointer;
-  background: url('close-black.png') no-repeat center center;
+  background: url('icons/close-black.png') no-repeat center center;
+  background-size: 8px;
 }
 
-tr td[type='close']:hover {background: #C75050 url('close-white.png') no-repeat center center}
+table tr td[type='close']:hover {
+  background: #C75050 url('icons/close-white.png') no-repeat center center;
+  background-size: 8px;
+}
 
 #content {
+  padding: 0;
   width: 100%;
   margin: 0 auto;
 }
@@ -120,10 +189,11 @@ tr td[type='close']:hover {background: #C75050 url('close-white.png') no-repeat 
 }
 
 .logo {
-  width: 100px;
-  height: 60px;
-  cursor: pointer;
-  background: url(../icons/enabled/48.png) center center no-repeat;
+  width: 100%;
+  height: 128px;
+  border-bottom: solid 1px rgba(0,0,0,0.1);
+  background: url("../icons/128.png") center center no-repeat;
+  background-size: 64px;
 }
 
 .title {
@@ -141,21 +211,20 @@ tr td[type='close']:hover {background: #C75050 url('close-white.png') no-repeat 
 
 .faq a {color: #157EFB}
 .title a {color: #147DFB}
-.logo a {color: transparent}
-.logo a, .faq a {padding: 20px 10px}
 
 .information {
-  color: #333;
-  padding: 5px;
-  margin: 1px 10px;
+  color: #555;
+  padding: 10px;
+  margin: 10px 0 0 0;
   text-align: justify;
-  background-color: rgba(0,0,0,0.05);
 }
 
 .information p {
   display: inline;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 22px;
   vertical-align: middle;
+  font-family: arial,sans-serif;
 }
 
 .information input[type="text"] {
@@ -166,48 +235,82 @@ tr td[type='close']:hover {background: #C75050 url('close-white.png') no-repeat 
 }
 
 .information input[type="number"] {
-  width: 70px;
-  padding: 3px;
+  color: #555;
+  width: 90px;
+  padding: 10px;
+  margin: 0 3px;
   min-width: 70px;
-  border: solid 1px rgba(0,0,0,0.3);
+  font-size: 12px;
+  font-family: monospace;
+  border: solid 1px #1ea1ff;
 }
 
 .itemtable {
-  margin: 10px;
+  margin: 10px 0;
   padding: 0 0 20px 0;
 }
 
+.user-input {
+  border-spacing: 15px 5px;
+}
+
+.user-items {
+  padding: 0 4px;
+  vertical-align: top;
+  padding-bottom: 8px;
+}
+
 .add {
-  width: 24px;
-  color: #157EFB;
-  padding: 0 10px;
+  width: 38px;
+  height: 22px;
+  padding: 0 5px;
+  color: #a5a5a5;
   cursor: pointer;
-  font-size: 24px;
-  border-radius: 0;
-  font-weight: bold;
+  user-select: none;
+  text-align: center;
+  border-radius: 100%;
   transition: 300ms ease all;
-  -moz-transition: 300ms ease all;
-  -webkit-transition: 300ms ease all;
+  border: solid 1px rgba(0,0,0,0.15);
+}
+
+.add svg {
+  fill: #777;
+  pointer-events: none;
+  vertical-align: middle;
 }
 
 .intro {
   padding: 0;
   width: 100%;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 .intro p {
-  margin: 0;
-  color: #878686;
-  padding: 0 40px;
+  color: #555;
+  line-height: 22px;
 }
 
-.intro img {width: 500px}
-.add:hover {background-color: rgba(0,0,0,0.1)}
-.information, .fit {border: solid 1px #cbd5dc}
+.add:hover {background-color: rgba(0,0,0,0.01)}
+.information, .fit {border: solid 1px rgba(0,0,0,0.1)}
+
+.separator {
+  width: 100%;
+  height: 7px;
+  margin: 0 auto;
+  display: block !important;
+}
 
 i, span, thead, .logo, .faq, .note, img {
   user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
+}
+
+@-moz-document url-prefix() {
+  input[type="text"],
+  table tr td[type='url'],
+  .list tbody td[type="number"],
+  .information input[type="number"] {
+    font-size: 11px;
+    font-weight: normal;
+    font-family: monaco, "andale mono", "lucida console", "courier new", monospace;
+  }
 }

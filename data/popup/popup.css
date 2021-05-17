@@ -1,51 +1,58 @@
-/* 
- * Copyright 2017 ilGur Petter
+/*
+ * Copyright 2021 ilGur Petter
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-body {
+html, body {
+  border: 0;
   margin: 0;
   padding: 0;
-  width: 400px;
-  height: 190px;
-  font-size: 14px;
+  color: #333;
+  font-size: 12px;
+  height: fit-content;
+  font-family: arial,sans-serif;
+}
+
+body {
+  width: 470px;
   overflow: hidden;
-  font-family: arial;
   background-color: #FFF;
 }
 
-table {
+.top {
   width: 100%;
-  height: 100%;
+  height: 190px;
   border-spacing: 0;
+  border-bottom: solid 1px rgba(0,0,0,0.1);
 }
 
-table tr td {
+.top tr td {
   border: 0;
   margin: 0;
-  padding: 0;  
+  padding: 0;
+  color: #555;
   cursor: pointer;
-  text-indent: 50px;
+  font-size: 12px;
+  text-indent: 42px;
   white-space: nowrap;
-  -moz-user-select: none;
-  -webkit-user-select: none;
   transition: 300ms ease all;
-  -moz-transition: 300ms ease all;
-  -webkit-transition: 300ms ease all;
+  font-family: arial,sans-serif;
 }
 
-table tr td[data-type='support'] {background: url(support.png) no-repeat left 12px center; background-size: 32px}
-table tr td[data-type='controls'] {background: url(controls.png) no-repeat left 12px center; background-size: 32px}
-table tr td[data-type='whitelist'] {background: url(whitelist.png) no-repeat left 12px center; background-size: 32px}
-table tr td[data-type='blacklist'] {background: url(blacklist.png) no-repeat left 12px center; background-size: 32px}
-table tr td[data-type='state'] {
-  background: rgba(0,0,0,0.2) url(active.png) no-repeat center center;
-  background-size: 100px;
-  width: 130px;
+.top tr td[data-type='support'] {background: url("icons/support.png") no-repeat left 16px center; background-size: 16px}
+.top tr td[data-type='donation'] {background: url("icons/donation.png") no-repeat left 16px center; background-size: 16px}
+.top tr td[data-type='controls'] {background: url("icons/controls.png") no-repeat left 16px center; background-size: 16px}
+.top tr td[data-type='whitelist'] {background: url("icons/whitelist.png") no-repeat left 16px center; background-size: 16px}
+.top tr td[data-type='blacklist'] {background: url("icons/blacklist.png") no-repeat left 16px center; background-size: 16px}
+.top tr td[data-type='state'] {
+  background: url("icons/active.png") no-repeat center center;
+  border-right: solid 1px rgba(0,0,0,0.1);
+  background-size: 64px;
+  width: 150px;
 }
 
-table tr td[data-type='state'][state='enabled'] {background-image: url(active.png)}
-table tr td[data-type='state'][state='disabled'] {background-image: url(inactive.png)}
-table tr td:not([data-type='state']):hover {background-color: rgba(0,0,0,0.2) !important}
+.top tr td[data-type='state'][state='enabled'] {background-image: url("icons/active.png")}
+.top tr td[data-type='state'][state='disabled'] {background-image: url("icons/inactive.png")}
+.top tr td:not([data-type='state']):hover {background-color: rgba(0,0,0,0.1) !important}
