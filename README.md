@@ -9,7 +9,7 @@ b. All websites (addresses) that do not support HTTPS are remembered in order to
 c. The toolbar button serves as the extension's ON|OFF switch. Blue indicates ON and Gray is OFF.
 d. Add desired websites to the whitelist (see Options page).
 
-Download links:
+Download links:  
 Firefox: https://addons.mozilla.org/en-US/firefox/addon/smart-https-revived/  
 Chrome: https://chrome.google.com/webstore/detail/smart-https/cmleijjdpceldbelpnpkddofmcmcaknm  
 Opera: https://addons.opera.com/en/extensions/details/smart-https/  
