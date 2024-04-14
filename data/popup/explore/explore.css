@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 ilGur Petter
+ * Copyright 2024 ilGur Petter
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -17,8 +17,6 @@
 #explore span {
   user-select: none;
   vertical-align: middle;
-  -moz-user-select: none;
-  -webkit-user-select: none;
 }
 
 #explore[data-loaded=true] {
@@ -26,7 +24,7 @@
   margin: 0;
   font-size: 12px;
   background: transparent;
-  padding: 5px 3px 3px 3px;
+  padding: 10px 5px 5px 5px;
   font-family: arial, sans-serif;;
 }
 
@@ -79,13 +77,13 @@
 #explore a {
   border: 0;
   margin: 0;
-  padding: 5px;
   display: flex;
   color: #565252;
   text-align: center;
   align-items: center;
   text-decoration: none;
   justify-content: center;
+  padding: 5px 5px 5px 10px;
 }
 
 #explore .icon {

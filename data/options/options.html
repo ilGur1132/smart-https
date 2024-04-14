@@ -1,5 +1,5 @@
 <!--
- - Copyright 2021 ilGur Petter
+ - Copyright 2024 ilGur Petter
  - This Source Code Form is subject to the terms of the Mozilla Public
  - License, v. 2.0. If a copy of the MPL was not distributed with this
  - file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -15,7 +15,7 @@
   <body>
     <div class="logo"></div>
     <div class="intro">
-      <details open>
+      <details>
         <summary>Info</summary>
         <p><b>HTTP</b>, or Hyper-Text Transfer Protocol, is the way a Web server communicates with the browser. HTTP lets visitors view a site and send information back to the Web server. <b>HTTPS</b>, or Hyper-Text Transfer Protocol Secure, is HTTP through a secured connection. Communications through an HTTPS server are encrypted by a secure certificate known as an SSL. The encryption prevents third-parties from eavesdropping on communications to and from the server. Read more about HTTPS at <a target="_blank" href="https://en.wikipedia.org/wiki/HTTPS">this</a> Wikipedia page.</p>
 
@@ -23,7 +23,7 @@
       </details>
     </div>
     <div id="content">
-      <details open>
+      <details>
         <summary>Settings</summary>
         <div class="information">
           <i>###</i><p>When switching to HTTPS, if loading takes longer than <input id="timeout" type="number" min=0 max=30000> milliseconds, revert the protocol back to HTTP (default is 3000 ms).</p>
@@ -97,7 +97,7 @@
                   <tr>
                     <td><input id="add-http-domain" type="text" placeholder="i.e. www.sample-whitelist.com"></td>
                     <td id="add-http-button" class="add">
-                      <svg width="8" height="8" viewBox="0 0 122.8799 122.8799">
+                      <svg width="10" height="10" viewBox="0 0 122.8799 122.8799">
                         <path d="M 4.9160156 0.27148438 L 4.9160156 4.9433594 L 0.24414062 4.9433594 L 0.24414062 7.0605469 L 4.9160156 7.0605469 L 4.9160156 11.732422 L 7.0332031 11.732422 L 7.0332031 7.0605469 L 11.707031 7.0605469 L 11.707031 4.9433594 L 7.0332031 4.9433594 L 7.0332031 0.27148438 L 4.9160156 0.27148438 z" transform="scale(10.239992)"/>
                       </svg>
                     </td>
@@ -109,7 +109,7 @@
                   <tr>
                     <td><input id="add-https-domain" type="text" placeholder="i.e. www.sample-blacklist.com"></td>
                     <td id="add-https-button" class="add">
-                      <svg width="8" height="8" viewBox="0 0 122.8799 122.8799">
+                      <svg width="10" height="10" viewBox="0 0 122.8799 122.8799">
                         <path d="M 4.9160156 0.27148438 L 4.9160156 4.9433594 L 0.24414062 4.9433594 L 0.24414062 7.0605469 L 4.9160156 7.0605469 L 4.9160156 11.732422 L 7.0332031 11.732422 L 7.0332031 7.0605469 L 11.707031 7.0605469 L 11.707031 4.9433594 L 7.0332031 4.9433594 L 7.0332031 0.27148438 L 4.9160156 0.27148438 z" transform="scale(10.239992)"/>
                       </svg>
                     </td>

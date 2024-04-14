@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 ilGur Petter
+ * Copyright 2024 ilGur Petter
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,20 +10,20 @@ body {
   margin: 0 auto;
   padding: 0 5px;
   min-width: 670px;
-  max-width: 1080px;
+  max-width: 1200px;
   overflow-y: scroll;
   align-items: center;
 }
 
 body, table {
   color: #333;
-  font-size: 12px;
+  font-size: 13px;
   font-family: arial, sans-serif;
 }
 
 table {
   width: 100%;
-  font-size: 12px;
+  font-size: 13px;
   border-spacing: 0;
   text-align: center;
 }
@@ -36,23 +36,33 @@ p {
 
 details {
   border: 0;
-  padding: 5px;
+  padding: 0;
   outline: none;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 summary {
   border: 0;
   margin: 0;
-  padding: 10px;
+  padding: 0;
+  height: 42px;
   outline: none;
   color: #158d47;
   cursor: pointer;
   font-size: 12px;
   padding-left: 0;
+  font-weight: 600;
   user-select: none;
-  font-weight: bold;
+  text-indent: 10px;
+  line-height: 42px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   font-family: arial, sans-serif;
+  background-color: rgba(0,0,0,0.05);
+}
+
+details[open] summary {
+  background-color: transparent;
 }
 
 summary:focus {
@@ -70,7 +80,7 @@ summary:focus {
 }
 
 .list thead .name {
-  color: #1ea1ff;
+  color: #0088e9;
   padding: 0 5px;
   text-align: left;
   line-height: 28px;
@@ -82,7 +92,7 @@ summary:focus {
 
 .list tbody td[type="number"] {
   width: 28px;
-  font-size: 12px;
+  font-size: 13px;
   font-family: monospace;
 }
 
@@ -103,45 +113,46 @@ a {
 
 i {
   padding: 0;
-  font-size: 12px;
+  font-size: 13px;
   display: inline;
   color: transparent;
   margin: 0 2px 0 -5px;
   vertical-align: initial;
   background: url('icons/item.png') no-repeat center center;
-  background-size: 12px;
+  background-size: 13px;
 }
 
 input {
   border: 0;
   outline: 0;
   margin: 0 5px;
+  box-sizing: border-box;
   vertical-align: middle;
 }
 
 input[type="checkbox"] {
-  margin: 0;
-  color: #555;
+  margin: 5px;
+  color: #333;
   float: right;
   vertical-align: middle;
 }
 
 input[type="text"] {
   margin: 5px;
-  color: #555;
-  height: 36px;
-  font-size: 12px;
-  text-indent: 7px;
+  color: #333;
+  height: 42px;
+  font-size: 13px;
   border-radius: 0;
+  text-indent: 10px;
   font-family: monospace;
   width: calc(100% - 5px);
-  border: solid 1px #1ea1ff;
+  border: solid 1px #0088e9;
 }
 
 table tr td {
   margin: 0;
   padding: 0;
-  color: #555;
+  color: #333;
   border-width: 0;
   vertical-align: middle;
   transition: 300ms ease all;
@@ -151,7 +162,7 @@ table tr td[type='url'] {
   width: auto;
   padding: 5px;
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   overflow: hidden;
   text-align: left;
   line-height: 18px;
@@ -213,7 +224,7 @@ table tr td[type='close']:hover {
 .title a {color: #147DFB}
 
 .information {
-  color: #555;
+  color: #333;
   padding: 10px;
   margin: 10px 0 0 0;
   text-align: justify;
@@ -221,8 +232,8 @@ table tr td[type='close']:hover {
 
 .information p {
   display: inline;
-  font-size: 12px;
-  line-height: 22px;
+  font-size: 13px;
+  line-height: 28px;
   vertical-align: middle;
   font-family: arial,sans-serif;
 }
@@ -235,14 +246,16 @@ table tr td[type='close']:hover {
 }
 
 .information input[type="number"] {
-  color: #555;
-  width: 90px;
-  padding: 10px;
+  padding: 0;
+  color: #333;
+  width: 128px;
+  height: 42px;
   margin: 0 3px;
   min-width: 70px;
-  font-size: 12px;
+  font-size: 14px;
+  text-indent: 10px;
   font-family: monospace;
-  border: solid 1px #1ea1ff;
+  border: solid 1px #0088e9;
 }
 
 .itemtable {
@@ -261,20 +274,21 @@ table tr td[type='close']:hover {
 }
 
 .add {
-  width: 38px;
-  height: 22px;
-  padding: 0 5px;
+  padding: 0;
+  width: 52px;
+  height: 52px;
   color: #a5a5a5;
   cursor: pointer;
   user-select: none;
   text-align: center;
-  border-radius: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
   transition: 300ms ease all;
   border: solid 1px rgba(0,0,0,0.15);
 }
 
 .add svg {
-  fill: #777;
+  fill: #555;
   pointer-events: none;
   vertical-align: middle;
 }
@@ -286,8 +300,8 @@ table tr td[type='close']:hover {
 }
 
 .intro p {
-  color: #555;
-  line-height: 22px;
+  color: #333;
+  line-height: 28px;
 }
 
 .add:hover {background-color: rgba(0,0,0,0.01)}

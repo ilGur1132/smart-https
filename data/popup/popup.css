@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 ilGur Petter
+ * Copyright 2024 ilGur Petter
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,7 +10,7 @@ html, body {
   margin: 0;
   padding: 0;
   color: #333;
-  font-size: 12px;
+  font-size: 13px;
   height: fit-content;
   font-family: arial,sans-serif;
 }
@@ -32,9 +32,10 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-  color: #555;
+  color: #333;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
+  user-select: none;
   text-indent: 42px;
   white-space: nowrap;
   transition: 300ms ease all;

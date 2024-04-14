@@ -1,33 +1,27 @@
 {
-  "version": "0.3.1",
+  "version": "0.3.3",
   "name": "Smart HTTPS",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "short_name": "smart-https",
+  "host_permissions": ["http://*/*", "https://*/*"],
   "homepage_url": "https://mybrowseraddon.com/smart-https.html",
   "description": "Automatically changes HTTP protocol to HTTPS, and if loading encounters error, reverts it back to HTTP.",
+  "commands": {
+    "_execute_action": {}
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "options_ui": {
     "open_in_tab": true,
     "page": "data/options/options.html"
   },
   "permissions": [
-    "storage", 
-    "http://*/*", 
-    "https://*/*", 
-    "webRequest", 
-    "webRequestBlocking"
+    "storage",
+    "webRequest",
+    "declarativeNetRequest"
   ],
-  "background": {
-    "persistent": true,
-    "scripts": [
-      "lib/core.js", 
-      "lib/config.js", 
-      "lib/chrome.js",
-      "lib/runtime.js",
-      "lib/webrequest.js",
-      "lib/common.js"
-    ]
-  },
-  "browser_action": {
+  "action": {
     "default_title": "Smart HTTPS",
     "default_popup": "data/popup/popup.html",
     "default_icon": {
