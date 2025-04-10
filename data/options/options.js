@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 ilGur Petter
+ * Copyright 2025 ilGur Petter
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -36,13 +36,33 @@ var background = (function () {
 })();
 
 var config = {
-  "http": {"object": {}},
-  "https": {"object": {}},
-  "enable": {"incognito": false},
-  "print": {"full": {"url": false}},
-  "disable": {"whitelisting": false},
-  "upgrade": {"insecure": {"requests": false}},
-  "enable": {"regular": {"expressions": false}},
+  "http": {
+    "object": {}
+  },
+  "https": {
+    "object": {}
+  },
+  "enable": {
+    "incognito": false
+  },
+  "print": {
+    "full": {
+      "url": false
+    }
+  },
+  "disable": {
+    "whitelisting": false
+  },
+  "upgrade": {
+    "insecure": {
+      "requests": false
+    }
+  },
+  "enable": {
+    "regular": {
+      "expressions": false
+    }
+  },
   "add": {
     "item": function (id, domain) {
       if (domain) {
@@ -64,14 +84,16 @@ var config = {
   },
   "remove": {
     "item": function (e, id) {
-      let target = e.target;
-      let obj = (id === "http") ? config.http.object : config.https.object;
+      const target = e.target;
+      const obj = (id === "http") ? config.http.object : config.https.object;
+      /*  */
       if (target.tagName.toLowerCase() === "td" || target.nodeName.toLowerCase() === "td") {
         let domain = '';
-        let tr = target.parentNode;
+        /*  */
+        const tr = target.parentNode;
         for (let i = 0; i < tr.children.length; i++) {
-          let td = tr.children[i];
-          let type = td.getAttribute("type");
+          const td = tr.children[i];
+          const type = td.getAttribute("type");
           if (type === "url") domain = tr.children[i].getAttribute("domain");
         }
         /*  */
@@ -80,6 +102,7 @@ var config = {
           delete obj[domain];
         }
       }
+      /*  */
       background.send("store-" + id + "-data", obj);
     }
   },
@@ -117,8 +140,8 @@ var config = {
     document.getElementById("dwhitelisting").addEventListener("change", function (e) {background.send("dwhitelisting", e.target.checked)});
     document.getElementById("typemissmatch").addEventListener("change", function (e) {background.send("typemissmatch", e.target.checked)});
     document.getElementById("max-table-items").addEventListener("change", function (e) {background.send("max-table-items", e.target.value)});
-    document.getElementById("add-http-button").addEventListener("click", function (e) {config.add.item("http", document.getElementById("add-http-domain").value)});
-    document.getElementById("add-https-button").addEventListener("click", function (e) {config.add.item("https", document.getElementById("add-https-domain").value)});
+    document.getElementById("add-http-button").addEventListener("click", function () {config.add.item("http", document.getElementById("add-http-domain").value)});
+    document.getElementById("add-https-button").addEventListener("click", function () {config.add.item("https", document.getElementById("add-https-domain").value)});
     /*  */
     document.getElementById("add-http-domain").addEventListener("keypress", function (e) {
       const key = e.which || e.keyCode;
@@ -141,11 +164,12 @@ var config = {
     "protocol": {
       "table": function (id) {
         let count = 1;
-        let obj = (id === "http") ? config.http.object : config.https.object;
-        let tbody = document.getElementById(id + "-url-list-tbody");
+        /*  */
+        const obj = (id === "http") ? config.http.object : config.https.object;
+        const tbody = document.getElementById(id + "-url-list-tbody");
         tbody.textContent = '';
         /*  */
-        let tmpArray = [];
+        const tmpArray = [];
         for (let domain in obj) {
           tmpArray.push({
             "domain": domain,
@@ -164,6 +188,7 @@ var config = {
         for (let i = 0; i < tmpArray.length; i++) {
           const flag1 = config.disable.whitelisting === false || tmpArray[i].smart === false;
           const flag2 = config.enable.incognito === false || tmpArray[i].incognito === false;
+          /*  */
           if (flag1 && flag2) {
             const a = document.createElement("a");
             const url = document.createElement("td");
@@ -177,10 +202,10 @@ var config = {
             /*  */
             a.href = tmpArray[i].url;
             url.setAttribute("domain", tmpArray[i].domain);
-            a.setAttribute("style", "text-decoration: none; color: #555");
             /*  */
-            if (config.enable.regular.expressions) a.removeAttribute("href");
-            else {
+            if (config.enable.regular.expressions) {
+              a.removeAttribute("href");
+            } else {
               a.setAttribute("rel", "noopener");
               a.setAttribute("target", "_blank");
               a.setAttribute("href", id + "://" + tmpArray[i].url.replace(id + "://", ''));
